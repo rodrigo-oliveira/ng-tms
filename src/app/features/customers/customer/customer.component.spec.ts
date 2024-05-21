@@ -1,11 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { LocationsComponent } from './locations.component';
+import { CustomerComponent } from './customer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
-describe('LocationsComponent', () => {
-  let component: LocationsComponent;
-  let fixture: ComponentFixture<LocationsComponent>;
+describe('CustomerComponent', () => {
+  let component: CustomerComponent;
+  let fixture: ComponentFixture<CustomerComponent>;
 
 
   beforeEach(async () => {
@@ -13,11 +13,11 @@ describe('LocationsComponent', () => {
       imports: [
         BrowserAnimationsModule,
         HttpClientModule,
-        LocationsComponent
+        CustomerComponent
     ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(LocationsComponent);
+    fixture = TestBed.createComponent(CustomerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,9 +1,10 @@
 <div class="po-wrapper">
-  <po-toolbar p-title="TRANSPORT MANAGEMENT SYSTEM"></po-toolbar>
+  <po-toolbar p-title="Transport Management System"></po-toolbar>
 
-  <po-menu [p-menus]="menus" p-logo="https://po-ui.io/assets/graphics/po.png"></po-menu>
+  <po-menu [p-menus]="menus" p-logo="https://po-ui.io/assets/graphics/po.png" p-logo-alt="TMS"></po-menu>
 
-  <po-page-default p-title="TMS">
-    <router-outlet></router-outlet>
-  </po-page-default>
+  <router-outlet></router-outlet>
+  <div class="sample-container">
+    <po-loading-overlay></po-loading-overlay>
+  </div>
 </div>

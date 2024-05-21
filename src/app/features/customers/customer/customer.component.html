@@ -1,0 +1,37 @@
+<po-page-edit
+  [p-breadcrumb]="breadcrumb"
+  [p-title]="'Novo cliente'"
+  (p-save)="save()"
+  (p-cancel)="cancel()"
+  [p-disable-submit]="form.invalid"
+>
+    <form [formGroup]="form">
+        @if (customerId !== '') {
+            <div class="po-row">
+                <po-input class="po-md-3" name="id" formControlName="id" p-label="Id" p-disabled="true"> </po-input>
+            </div>
+            <po-divider></po-divider>
+        }
+
+        <div class="po-row">
+            <po-input class="po-md-6" name="name" formControlName="name" p-label="Nome"> </po-input>
+            <po-input class="po-md-6" name="document" formControlName="document" p-label="CPF"> </po-input>
+        </div>
+
+        <po-divider></po-divider>
+
+        <po-switch name="switch" formControlName="status" p-label="Status" p-label-off="Desativado" p-label-on="Ativado"> </po-switch>
+
+        <po-divider></po-divider>
+
+        <div class="po-row">
+            <po-button
+                p-icon="ICON_OK"
+                p-label="Salvar"
+                p-kind="primary"
+                [p-disabled]="form.invalid"
+                (p-click)="save()"
+            ></po-button>
+        </div>
+    </form>
+</po-page-edit>
