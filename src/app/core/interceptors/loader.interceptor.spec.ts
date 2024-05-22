@@ -1,43 +1,43 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClient, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
-import { LoaderStoreService } from '../store/loader-store.service';
-import { loaderInterceptor } from './loader.interceptor';
+import { LoadingStoreService } from '../store/loading-store.service';
+import { loadingInterceptor } from './loading.interceptor';
 
 describe('LoaderInterceptor', () => {
   let httpClient: HttpClient;
   let httpTestingController: HttpTestingController;
-  let loaderStoreService: LoaderStoreService;
+  let loadingStoreService: LoadingStoreService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
-        LoaderStoreService,
-        provideHttpClient(withInterceptors([loaderInterceptor])),
+        LoadingStoreService,
+        provideHttpClient(withInterceptors([loadingInterceptor])),
         provideHttpClientTesting()
       ],
     });
 
     httpClient = TestBed.inject(HttpClient);
     httpTestingController = TestBed.inject(HttpTestingController);
-    loaderStoreService = TestBed.inject(LoaderStoreService);
+    loadingStoreService = TestBed.inject(LoadingStoreService);
   });
 
   it('should show loader when making HTTP request', () => {
-    spyOn(loaderStoreService, 'show');
+    spyOn(loadingStoreService, 'show');
 
     httpClient.get('/test').subscribe();
 
     const req = httpTestingController.expectOne('/test');
     expect(req.request.method).toEqual('GET');
 
-    expect(loaderStoreService.show).toHaveBeenCalled();
+    expect(loadingStoreService.show).toHaveBeenCalled();
 
     req.flush({});
   });
 
   it('should hide loader after HTTP request completes', () => {
-    spyOn(loaderStoreService, 'hide');
+    spyOn(loadingStoreService, 'hide');
 
     httpClient.get('/test').subscribe();
 
@@ -46,6 +46,6 @@ describe('LoaderInterceptor', () => {
 
     req.flush({});
 
-    expect(loaderStoreService.hide).toHaveBeenCalled();
+    expect(loadingStoreService.hide).toHaveBeenCalled();
   });
 });

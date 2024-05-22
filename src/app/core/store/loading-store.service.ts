@@ -3,7 +3,7 @@ import { Injectable, WritableSignal, signal } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class LoaderStoreService {
+export class LoadingStoreService {
   private isLoadingSignal: WritableSignal<boolean> = signal(false);
   readonly isLoading = this.isLoadingSignal.asReadonly();
 

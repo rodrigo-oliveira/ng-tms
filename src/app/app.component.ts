@@ -11,7 +11,7 @@ import {
   PoPageModule,
   PoToolbarModule,
 } from '@po-ui/ng-components';
-import { LoaderComponent } from './shared/components/loader/loader.component';
+import { LoadingComponent } from './shared/components/loading/loading.component';
 
 @Component({
   selector: 'app-root',
@@ -25,7 +25,7 @@ import { LoaderComponent } from './shared/components/loader/loader.component';
     PoPageModule,
     PoLoadingModule,
     HttpClientModule,
-    LoaderComponent
+    LoadingComponent
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
