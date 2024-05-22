@@ -1,19 +1,42 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './features/home/home.component';
-import { CustomersComponent } from './features/customers/customers.component';
-import { VehiclesComponent } from './features/vehicles/vehicles.component';
-import { LocationsComponent } from './features/locations/locations.component';
-import { LoadsComponent } from './features/loads/loads.component';
-import { RoutesComponent } from './features/routes/routes.component';
-import { CustomerComponent } from './features/customers/customer/customer.component';
 
 export const routes: Routes = [
-    { path: '', component: HomeComponent },
-    { path: 'clientes', component: CustomersComponent },
-    { path: 'clientes/novo', component: CustomerComponent },
-    { path: 'clientes/editar/:id', component: CustomerComponent },
-    { path: 'veiculos', component: VehiclesComponent },
-    { path: 'locais', component: LocationsComponent },
-    { path: 'rotas', component: RoutesComponent },
-    { path: 'cargas', component: LoadsComponent },
+  {
+    path: '',
+    loadComponent: () =>
+      import('./features/home/home.component').then((m) => m.HomeComponent),
+  },
+  {
+    path: 'clientes',
+    loadChildren: () =>
+      import('./features/customers/customers.routes').then(
+        (m) => m.customerRoutes
+    )
+  },
+  {
+    path: 'veiculos',
+    loadComponent: () =>
+      import('./features/vehicles/vehicles.component').then(
+        (m) => m.VehiclesComponent
+      ),
+  },
+  {
+    path: 'locais',
+    loadComponent: () =>
+      import('./features/locations/locations.component').then(
+        (m) => m.LocationsComponent
+      ),
+  },
+  {
+    path: 'rotas',
+    loadComponent: () =>
+      import('./features/routes/routes.component').then(
+        (m) => m.RoutesComponent
+      ),
+  },
+  {
+    path: 'cargas',
+    loadComponent: () =>
+      import('./features/loads/loads.component').then((m) => m.LoadsComponent),
+  },
 ];

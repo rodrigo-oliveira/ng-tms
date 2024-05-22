@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { PoPageModule } from '@po-ui/ng-components';
 
@@ -6,8 +5,7 @@ import { PoPageModule } from '@po-ui/ng-components';
   selector: 'app-locations',
   standalone: true,
   imports: [
-    CommonModule,
-    PoPageModule
+    PoPageModule,
   ],
   templateUrl: './locations.component.html',
   styleUrl: './locations.component.scss'

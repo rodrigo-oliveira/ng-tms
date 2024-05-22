@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { PoPageModule } from '@po-ui/ng-components';
 
@@ -6,7 +5,6 @@ import { PoPageModule } from '@po-ui/ng-components';
   selector: 'app-vehicles',
   standalone: true,
   imports: [
-    CommonModule,
     PoPageModule
   ],
   templateUrl: './vehicles.component.html',

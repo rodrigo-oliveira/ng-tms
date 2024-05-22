@@ -1,10 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
+import { RouteConfigLoadEnd, RouteConfigLoadStart, Router, RouterOutlet } from '@angular/router';
 
 import {
-  PoAvatarComponent,
   PoAvatarModule,
   PoLoadingModule,
   PoMenuItem,
@@ -12,6 +11,7 @@ import {
   PoPageModule,
   PoToolbarModule,
 } from '@po-ui/ng-components';
+import { LoaderComponent } from './shared/components/loader/loader.component';
 
 @Component({
   selector: 'app-root',
@@ -25,14 +25,13 @@ import {
     PoPageModule,
     PoLoadingModule,
     HttpClientModule,
+    LoaderComponent
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  constructor(private router: Router) {
-
-  }
+  isLoading = false;
   readonly menus: Array<PoMenuItem> = [
     { label: 'Início', icon: 'po-icon-home', action: this.onClick.bind(this, '') },
     { label: 'Clientes', icon: 'po-icon-users', action: this.onClick.bind(this , 'clientes'), subItems: [
@@ -47,6 +46,18 @@ export class AppComponent {
     { label: 'Rotas', icon: 'po-icon-map', action: this.onClick.bind(this, 'rotas') },
     { label: 'Cargas', icon: 'po-icon-pushcart', action: this.onClick.bind(this, 'cargas') },
   ];
+
+  constructor(private router: Router) {
+    router.events.subscribe(
+      (event): void => {
+        if (event instanceof RouteConfigLoadStart) {
+          this.isLoading = true;
+        } else if (event instanceof RouteConfigLoadEnd) {
+          this.isLoading  = false;
+        }
+      }
+    );
+  }
 
   private onClick(route: string) {
     this.router.navigate([route]);

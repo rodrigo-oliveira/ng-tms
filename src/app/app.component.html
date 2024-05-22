@@ -3,8 +3,10 @@
 
   <po-menu [p-menus]="menus" p-logo="https://po-ui.io/assets/graphics/po.png" p-logo-alt="TMS"></po-menu>
 
-  <router-outlet></router-outlet>
-  <div class="sample-container">
-    <po-loading-overlay></po-loading-overlay>
-  </div>
+  <router-outlet>
+    <po-loading-overlay [p-screen-lock]="true" *ngIf="isLoading"></po-loading-overlay>
+  </router-outlet>
+
 </div>
+
+<app-loader></app-loader>

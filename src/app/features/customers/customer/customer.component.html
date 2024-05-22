@@ -1,12 +1,12 @@
 <po-page-edit
   [p-breadcrumb]="breadcrumb"
-  [p-title]="'Novo cliente'"
+  [p-title]="title"
   (p-save)="save()"
   (p-cancel)="cancel()"
   [p-disable-submit]="form.invalid"
 >
     <form [formGroup]="form">
-        @if (customerId !== '') {
+        @if (routerUrl !== '/clientes/novo') {
             <div class="po-row">
                 <po-input class="po-md-3" name="id" formControlName="id" p-label="Id" p-disabled="true"> </po-input>
             </div>
