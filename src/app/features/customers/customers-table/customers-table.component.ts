@@ -49,14 +49,9 @@ export class CustomersTableComponent {
   readonly spacing = PoTableColumnSpacing.Medium;
   readonly tableActions: PoTableAction[] = [
     {
-      label: 'Details',
+      label: 'Editar',
       action: this.onClickCustomerDetails.bind(this),
       icon: 'po-icon-edit'
-    },
-    {
-      label: 'Excluir',
-      action: () => {},
-      icon: 'po-icon-delete'
     }
   ];
   customers$ = this.customersFacade.customers$;

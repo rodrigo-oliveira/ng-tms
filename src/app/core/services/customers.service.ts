@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CostumersAdapter } from '../adapters/customers-adapter';
+import { CostumersAdapter } from '../adapters/customers.adapter';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import { Customer } from '../models/customer';

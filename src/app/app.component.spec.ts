@@ -11,7 +11,7 @@ describe('AppComponent', () => {
       imports: [AppComponent],
       providers: [provideMockStore()]
     }).compileComponents();
-    mockStore = TestBed.inject(MockStore); // Inject mock Store
+    mockStore = TestBed.inject(MockStore);
   });
 
   it('should create the app', () => {

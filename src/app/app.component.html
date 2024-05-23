@@ -1,12 +1,9 @@
 <div class="po-wrapper">
   <po-toolbar p-title="Transport Management System"></po-toolbar>
-
-  <po-menu [p-menus]="menus" p-logo="https://po-ui.io/assets/graphics/po.png" p-logo-alt="TMS"></po-menu>
-
+  <app-menu></app-menu>
   <router-outlet>
     <po-loading-overlay [p-screen-lock]="true" *ngIf="isLoading"></po-loading-overlay>
   </router-outlet>
-
 </div>
 
 <app-loading></app-loading>
