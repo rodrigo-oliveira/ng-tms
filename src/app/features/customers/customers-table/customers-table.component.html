@@ -10,7 +10,7 @@
   <po-table
     [p-actions]="tableActions"
     [p-columns]="tableColumns"
-    [p-items]="items$.value"
+    [p-items]="(customers$ | async) || []"
     [p-sort]="true"
     [p-spacing]="spacing"
     [p-hide-table-search]="false"

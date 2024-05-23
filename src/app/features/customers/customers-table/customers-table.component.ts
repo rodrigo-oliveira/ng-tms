@@ -1,16 +1,15 @@
-import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
+import { Component, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PoButtonModule, PoPageModule, PoTableAction, PoTableColumnLabel, PoTableColumnSpacing, PoTableModule } from '@po-ui/ng-components';
-import { BehaviorSubject } from 'rxjs';
-import { CustomersService } from '../../../core/services/customers.service';
-import { ICustomer } from '../../../core/models/customer';
-
+import { Customer } from '../../../core/models/customer';
+import { CustomersFacade } from '../customers.facade';
 
 @Component({
   selector: 'app-customers-table',
   standalone: true,
   imports: [
+    AsyncPipe,
     PoPageModule,
     PoButtonModule,
     PoTableModule
@@ -18,7 +17,8 @@ import { ICustomer } from '../../../core/models/customer';
   templateUrl: './customers-table.component.html',
   styleUrl: './customers-table.component.scss'
 })
-export class CustomersTableComponent implements OnInit {
+export class CustomersTableComponent {
+  private customersFacade = inject(CustomersFacade);
   readonly tableColumns = [
     { property: 'id', key: true },
     { property: 'name', label: 'Nome' },
@@ -59,20 +59,11 @@ export class CustomersTableComponent implements OnInit {
       icon: 'po-icon-delete'
     }
   ];
-  items$ = new BehaviorSubject<ICustomer[]>([] || null);
-  isLoading = true;
+  customers$ = this.customersFacade.customers$;
 
-  constructor(private router: Router, private route: ActivatedRoute, private customersService: CustomersService) {}
+  constructor(private router: Router, private route: ActivatedRoute) {}
 
-  ngOnInit(): void {
-    this.customersService.getAll().subscribe(customers => {
-      this.items$.next(customers);
-    });
-
-    //setTimeout(() => {this.items$.next([])}, 3000)
-  }
-
-  onClickCustomerDetails(customer: ICustomer) {
+  onClickCustomerDetails(customer: Customer) {
     this.router.navigate([`editar/${customer.id}`], { relativeTo: this.route });
   }
 

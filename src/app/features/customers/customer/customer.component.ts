@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -13,8 +13,8 @@ import {
   PoFieldModule,
   PoPageModule,
 } from '@po-ui/ng-components';
-import { CustomersService } from '../../../core/services/customers.service';
-import { Customer, ICustomer } from '../../../core/models/customer';
+import { CustomerModel, Customer } from '../../../core/models/customer';
+import { CustomersFacade } from '../customers.facade';
 
 @Component({
   selector: 'app-customer',
@@ -30,7 +30,8 @@ import { Customer, ICustomer } from '../../../core/models/customer';
   styleUrl: './customer.component.scss',
 })
 export class CustomerComponent implements OnInit {
-  form = this.formBuilder.group(this.getFormGroup(new Customer()));
+  customersFacade = inject(CustomersFacade);
+  form = this.formBuilder.group(this.getFormGroup(new CustomerModel()));
   title = '';
   routerUrl = '';
   breadcrumb: PoBreadcrumb = {
@@ -43,7 +44,6 @@ export class CustomerComponent implements OnInit {
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private customersService: CustomersService,
     private formBuilder: FormBuilder
   ) {}
 
@@ -53,11 +53,12 @@ export class CustomerComponent implements OnInit {
     this.title = this.getTitle();
     this.breadcrumb.items[1].label = this.getTitle();
     this.routerUrl = this.router.url;
-  
+
     if (customerId !== '') {
-      this.customersService.get(customerId).subscribe((user) => {
-        this.createForm(user);
-      });
+      this.customersFacade.getCustomerById(customerId).subscribe(customer => {
+        console.log(customer)
+        this.createForm(customer);
+      })
     }
   }
 
@@ -65,7 +66,7 @@ export class CustomerComponent implements OnInit {
     return this.router.url === '/clientes/novo' ? 'Novo cliente' : 'Editar cliente';
   }
 
-  getFormGroup(user: ICustomer) {
+  getFormGroup(user: Customer) {
     return {
       id: new FormControl(user.id),
       name: new FormControl(user.name, [
@@ -80,7 +81,7 @@ export class CustomerComponent implements OnInit {
     };
   }
 
-  createForm(user: ICustomer): void {
+  createForm(user: Customer): void {
     this.form = this.formBuilder.group(this.getFormGroup(user));
   }
 

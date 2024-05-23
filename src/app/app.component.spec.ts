@@ -1,12 +1,17 @@
 import { TestBed } from '@angular/core/testing';
 
 import { AppComponent } from './app.component';
+import { MockStore, provideMockStore } from '@ngrx/store/testing';
 
 describe('AppComponent', () => {
+  let mockStore: MockStore;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AppComponent],
+      providers: [provideMockStore()]
     }).compileComponents();
+    mockStore = TestBed.inject(MockStore); // Inject mock Store
   });
 
   it('should create the app', () => {

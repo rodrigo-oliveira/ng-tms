@@ -1,17 +1,18 @@
 import { type HttpInterceptorFn } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { finalize, tap } from 'rxjs';
-import { LoadingStoreService } from '../store/loading-store.service';
+import { Store } from '@ngrx/store';
+import { loadingActions } from './state/loading.actions';
 
 export const loadingInterceptor: HttpInterceptorFn = (req, next) => {
-  const loadingStoreService = inject(LoadingStoreService);
+  const store = inject(Store);
 
   return next(req).pipe(
     tap(event => {
-      loadingStoreService.show();
+      return store.dispatch(loadingActions.loadingStarted())
     }),
     finalize(() => {
-      loadingStoreService.hide();
+      return store.dispatch(loadingActions.loadingSucess());
     })
   );
 };

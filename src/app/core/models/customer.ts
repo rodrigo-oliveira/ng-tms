@@ -1,12 +1,13 @@
+export type StatusType = 'active' | 'disabled';
 
-export class Customer {
+export class CustomerModel {
     id: string = '';
     name: string = '';
     document: string = '';
-    status: string = 'desativado';
+    status: StatusType = 'disabled';
 }
 
-export interface ICustomer {
+export interface Customer {
     id: string;
     name: string;
     document: string;

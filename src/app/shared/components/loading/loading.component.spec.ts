@@ -1,17 +1,23 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { LoaderComponent } from './loading.component';
+import { LoadingComponent } from './loading.component';
+import { MockStore, provideMockStore } from '@ngrx/store/testing';
 
-describe('LoaderComponent', () => {
-  let component: LoaderComponent;
-  let fixture: ComponentFixture<LoaderComponent>;
+describe('LoadingComponent', () => {
+  let component: LoadingComponent;
+  let fixture: ComponentFixture<LoadingComponent>;
+  let mockStore: MockStore;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LoaderComponent]
+      imports: [LoadingComponent],
+      providers: [
+        provideMockStore()
+      ]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(LoaderComponent);
+    fixture = TestBed.createComponent(LoadingComponent);
+    mockStore = TestBed.inject(MockStore);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
