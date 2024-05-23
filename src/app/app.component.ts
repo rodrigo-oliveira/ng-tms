@@ -6,12 +6,14 @@ import {
 } from '@po-ui/ng-components';
 import { LoadingComponent } from './shared/components/loading/loading.component';
 import { MenuComponent } from './shared/components/menu/menu.component';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     RouterOutlet,
+    NgIf,
     PoToolbarModule,
     PoLoadingModule,
     MenuComponent,

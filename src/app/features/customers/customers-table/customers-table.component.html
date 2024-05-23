@@ -17,3 +17,12 @@
     [p-actions-right]="true">
   </po-table>
 </po-page-default>
+
+<po-modal
+    p-title="Confirmar exclusão"
+    [p-primary-action]="confirm"
+    [p-secondary-action]="close">
+    <div>
+      Tem certeza de que deseja excluir esse registro? Você não poderá desfazer essa ação.
+    </div>
+</po-modal>

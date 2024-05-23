@@ -15,6 +15,7 @@ import {
 } from '@po-ui/ng-components';
 import { CustomerModel, Customer } from '../../../core/models/customer';
 import { CustomersFacade } from '../customers.facade';
+import { TmsValidators } from '../../../shared/validators/validators';
 
 @Component({
   selector: 'app-customer',
@@ -24,7 +25,7 @@ import { CustomersFacade } from '../customers.facade';
     PoPageModule,
     PoFieldModule,
     PoButtonModule,
-    PoDividerModule,
+    PoDividerModule
   ],
   templateUrl: './customer.component.html',
   styleUrl: './customer.component.scss',
@@ -56,9 +57,8 @@ export class CustomerComponent implements OnInit {
 
     if (customerId !== '') {
       this.customersFacade.getCustomerById(customerId).subscribe(customer => {
-        console.log(customer)
         this.createForm(customer);
-      })
+      });
     }
   }
 
@@ -72,10 +72,11 @@ export class CustomerComponent implements OnInit {
       name: new FormControl(user.name, [
         Validators.required,
         Validators.minLength(10),
+        TmsValidators.fullName
       ]),
       document: new FormControl(user.document, [
         Validators.required,
-        Validators.minLength(10),
+        TmsValidators.cpfCnpj
       ]),
       status: new FormControl(user.status, []),
     };
@@ -90,8 +91,6 @@ export class CustomerComponent implements OnInit {
   }
 
   save(): void {
-    if (this.form.valid) {
-      this.router.navigate(['clientes']);
-    }
+    this.router.navigate(['clientes']);
   }
 }

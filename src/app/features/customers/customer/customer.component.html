@@ -14,8 +14,8 @@
         }
 
         <div class="po-row">
-            <po-input class="po-md-6" name="name" formControlName="name" p-label="Nome"> </po-input>
-            <po-input class="po-md-6" name="document" formControlName="document" p-label="CPF"> </po-input>
+            <po-input class="po-md-6" name="name" formControlName="name" p-label="Nome *" p-error-pattern="Campo inválido" [p-maxlength]="100"> </po-input>
+            <po-input class="po-md-6" name="document" formControlName="document" p-label="CPF *" p-mask="999.999.999-99" p-error-pattern="CPF inválido"></po-input>
         </div>
 
         <po-divider></po-divider>

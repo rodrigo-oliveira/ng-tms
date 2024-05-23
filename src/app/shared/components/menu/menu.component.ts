@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
   selector: 'app-menu',
   standalone: true,
   imports: [ PoMenuModule ],
+  styleUrl: './menu.component.scss',
   templateUrl: './menu.component.html',
 })
 export class MenuComponent {
