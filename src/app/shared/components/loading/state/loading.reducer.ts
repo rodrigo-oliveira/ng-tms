@@ -2,6 +2,7 @@ import { createReducer, on } from "@ngrx/store";
 import { loadingActions } from "./loading.actions";
 
 enum Status {
+  pending = 'pending',
   loading = 'loading',
   success = 'success'
 }
@@ -11,7 +12,7 @@ export interface LoadingState {
 }
 
 const initialState: LoadingState = {
-  status: Status.loading
+  status: Status.pending
 }
 
 export const loadingReducer = createReducer(
