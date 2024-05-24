@@ -28,8 +28,7 @@ import { Subscription } from 'rxjs';
     PoButtonModule,
     PoDividerModule
   ],
-  templateUrl: './customer.component.html',
-  styleUrl: './customer.component.scss',
+  templateUrl: './customer.component.html'
 })
 export class CustomerComponent implements OnInit, OnDestroy {
   customersFacade = inject(CustomersFacade);

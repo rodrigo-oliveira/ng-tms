@@ -26,8 +26,7 @@ import { Subscription } from 'rxjs';
     PoTableModule,
     PoModalModule,
   ],
-  templateUrl: './customers-table.component.html',
-  styleUrl: './customers-table.component.scss',
+  templateUrl: './customers-table.component.html'
 })
 export class CustomersTableComponent implements OnDestroy {
   @ViewChild(PoModalComponent, { static: true }) poModal: PoModalComponent;

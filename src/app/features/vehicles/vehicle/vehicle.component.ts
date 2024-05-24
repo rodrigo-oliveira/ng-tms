@@ -32,8 +32,7 @@ import { Subscription } from 'rxjs';
     PoButtonModule,
     PoDividerModule
   ],
-  templateUrl: './vehicle.component.html',
-  styleUrl: './vehicle.component.scss',
+  templateUrl: './vehicle.component.html'
 })
 export class VehicleComponent implements OnInit, OnDestroy {
   vehiclesFacade = inject(VehiclesFacade);

@@ -12,8 +12,7 @@ import { RouterOutlet } from '@angular/router';
     RouterOutlet,
     VehiclesTableComponent
   ],
-  templateUrl: './vehicles.component.html',
-  styleUrl: './vehicles.component.scss'
+  templateUrl: './vehicles.component.html'
 })
 export class VehiclesComponent {
   vehiclesFacade = inject(VehiclesFacade);
