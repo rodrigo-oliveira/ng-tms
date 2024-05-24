@@ -112,13 +112,13 @@
     ]
   },
   "atualizar-veiculo": {
-    "id": 2,
-    "marca": "Ford",
-    "modelo": "Transit",
-    "tipo": "Van",
-    "ano": 2020,
-    "capacidade_carga_kg": 1500,
-    "consumo_medio_km_litro": 8,
-    "combustivel": "Diesel"
+    "id": 4,
+    "marca": "Renault",
+    "modelo": "Kangoo",
+    "tipo": "Furgão",
+    "ano": 2021,
+    "capacidade_carga_kg": 800,
+    "consumo_medio_km_litro": 12,
+    "combustivel": "Gasolina"
   }
 }

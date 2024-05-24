@@ -7,7 +7,7 @@ import {
 import { LoadingComponent } from './shared/components/loading/loading.component';
 import { MenuComponent } from './shared/components/menu/menu.component';
 import { NgIf } from '@angular/common';
-import { NotificationErrorComponent } from './shared/components/notification-error/notification-error.component';
+import { NotificationStatusComponent } from './shared/components/notification-status/notification-status.component';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -20,7 +20,7 @@ import { Subscription } from 'rxjs';
     PoLoadingModule,
     MenuComponent,
     LoadingComponent,
-    NotificationErrorComponent
+    NotificationStatusComponent
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
@@ -30,15 +30,13 @@ export class AppComponent implements OnDestroy {
   routerEventsSubscription: Subscription;   
 
   constructor(private router: Router) {
-    this.routerEventsSubscription = this.router.events.subscribe(
-      (event): void => {
-        if (event instanceof RouteConfigLoadStart) {
-          this.isLoading = true;
-        } else if (event instanceof RouteConfigLoadEnd) {
-          this.isLoading  = false;
-        }
+    this.routerEventsSubscription = this.router.events.subscribe(event => {
+      if (event instanceof RouteConfigLoadStart) {
+        this.isLoading = true;
+      } else if (event instanceof RouteConfigLoadEnd) {
+        this.isLoading  = false;
       }
-    );
+    });
   }
 
   ngOnDestroy(): void {
