@@ -8,6 +8,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Development server
 
 Run `npm run start` for a dev server.
+
 Run `npm run start:prod` to run the application pointing to Vercel API.
 
 Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
