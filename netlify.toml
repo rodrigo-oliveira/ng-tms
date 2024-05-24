@@ -1,4 +1,4 @@
 [[redirects]]
   from = "/api/*"
-  to = "https://server-tms.vercel.app/:splat"
+  to = "https://express-tms.vercel.app/:splat"
   status = 200
