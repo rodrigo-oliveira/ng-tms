@@ -23,7 +23,6 @@ export class MenuComponent {
       subItems: [
         {
           label: 'Novo cliente',
-          icon: 'po-icon-users',
           action: this.onClick.bind(this, 'clientes/novo'),
         },
       ],
@@ -32,6 +31,12 @@ export class MenuComponent {
       label: 'Veículos',
       icon: 'po-icon-truck',
       action: this.onClick.bind(this, 'veiculos'),
+      subItems: [
+        {
+          label: 'Novo veículo',
+          action: this.onClick.bind(this, 'veiculos/novo'),
+        },
+      ],
     },
     {
       label: 'Locais',

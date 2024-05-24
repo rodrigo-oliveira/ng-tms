@@ -1,24 +1,108 @@
 {
-    "clientes": {
-      "items": [
-          {
-              "id": "0148093543698",
-              "nome": "Ronaldo Nascimento Filho",
-              "documento": "12345678909",
-              "status": false
-          },
-          {
-            "id": "0158093543699",
-            "nome": "Alberto Souza Oliveira",
-            "documento": "12345678909",
-            "status": true
-          },
-          {
-            "id": "0168093543622",
-            "nome": "Diogo Costa Santos",
-            "documento": "12345678909",
-            "status": true
-          }
-      ]
+  "clientes": {
+    "items": [
+      {
+        "id": "0148093543698",
+        "nome": "Ronaldo Nascimento Filho",
+        "documento": "12345678909",
+        "status": false
+      },
+      {
+        "id": "0158093543699",
+        "nome": "Alberto Souza Oliveira",
+        "documento": "12345678909",
+        "status": true
+      },
+      {
+        "id": "0168093543622",
+        "nome": "Diogo Costa Santos",
+        "documento": "12345678909",
+        "status": true
+      }
+    ]
+  },
+  "veiculos": {
+    "items": [
+      {
+        "id": 1,
+        "marca": "Toyota",
+        "modelo": "Hilux",
+        "tipo": "Caminhonete",
+        "ano": 2022,
+        "capacidade_carga_kg": 1000,
+        "consumo_medio_km_litro": 10,
+        "combustivel": "Diesel"
+      },
+      {
+        "id": 2,
+        "marca": "Ford",
+        "modelo": "Transit",
+        "tipo": "Van",
+        "ano": 2020,
+        "capacidade_carga_kg": 1500,
+        "consumo_medio_km_litro": 8,
+        "combustivel": "Diesel"
+      },
+      {
+        "id": 3,
+        "marca": "Mercedes-Benz",
+        "modelo": "Actros",
+        "tipo": "Caminhão",
+        "ano": 2019,
+        "capacidade_carga_kg": 5000,
+        "consumo_medio_km_litro": 4,
+        "combustivel": "Diesel"
+      },
+      {
+        "id": 4,
+        "marca": "Renault",
+        "modelo": "Kangoo",
+        "tipo": "Furgão",
+        "ano": 2021,
+        "capacidade_carga_kg": 800,
+        "consumo_medio_km_litro": 12,
+        "combustivel": "Gasolina"
+      }
+    ]
+  },
+  "marcas-veiculos": {
+    "items": [
+      {
+        "id": 1,
+        "marca": "Toyota"
+      },
+      {
+        "id": 2,
+        "marca": "Ford"
+      },
+      {
+        "id": 3,
+        "marca": "Mercedes-Benz"
+      },
+      {
+        "id": 4,
+        "marca": "Renault"
+      }
+    ]
+  },
+  "modelos-veiculos": {
+    "items": [
+      {
+        "id": 1,
+        "modelo": "Hilux"
+      },
+      {
+        "id": 2,
+        "modelo": "Transit"
+      },
+      {
+        "id": 3,
+        "modelo": "Actros"
+      },
+      {
+        "id": 4,
+        "modelo": "Furgão"
+      }
+    ]
   }
 }

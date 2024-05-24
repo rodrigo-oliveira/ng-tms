@@ -1,4 +1,7 @@
 {
   "/clientes": "/clientes",
-  "/clientes/:id": "/cliente/:id"
+  "/veiculos": "/veiculos",
+  "/marcas-veiculos": "/marcas-veiculos",
+  "/modelos-veiculos": "/modelos-veiculos"
+
 }

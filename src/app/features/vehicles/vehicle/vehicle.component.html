@@ -1,0 +1,75 @@
+<po-page-edit
+  [p-breadcrumb]="breadcrumb"
+  [p-title]="title"
+  (p-save)="save()"
+  (p-cancel)="cancel()"
+  [p-disable-submit]="form.invalid"
+>
+    <form [formGroup]="form">
+        @if (routerUrl !== '/veiculos/novo') {
+            <div class="po-row">
+                <po-input class="po-md-3" name="id" formControlName="id" p-label="Id" p-disabled="true"> </po-input>
+            </div>
+            <po-divider></po-divider>
+        }
+        <div class="po-row">
+            <po-select
+                name="brand"
+                p-label="Marca *"
+                class="po-md-3"
+                formControlName="brand"
+                p-field-value="brand"
+                p-field-label="brand"
+                (p-change)="onSelectBrand($event)"
+                [ngModel]="vehicle ? vehicle.brand : null"
+                [p-options]="(vehicleBrands$ | async) || []"
+            ></po-select>
+            <po-select
+                name="model"
+                p-label="Modelo *"
+                class="po-md-3"
+                formControlName="model"
+                p-field-value="model"
+                p-field-label="model"
+                [ngModel]="vehicle ? vehicle.model : null"
+                [p-options]="(vehicleModels$ | async) || []"
+            ></po-select>
+            <po-select
+                name="type"
+                p-label="Tipo *"
+                class="po-md-3"
+                formControlName="type"
+                p-field-value="label"
+                [ngModel]="vehicle ? vehicle.type : null"
+                [p-options]="(vehicleTypes$ | async) || []"
+            ></po-select>
+        </div>
+
+        <div class="po-row">
+            <po-number class="po-md-3" name="year" formControlName="year" p-label="Ano *" p-error-pattern="Valor inválido" [p-min]="1960" [p-max]="2024" [p-maxlength]="4"> </po-number>
+            <po-number class="po-md-3" name="cargo_capacity_kg" formControlName="cargo_capacity_kg" p-label="Capacidade da carga (kg)*" p-error-pattern="Valor inválido" [p-max]="40000" [p-maxlength]="5"> </po-number>
+            <po-input class="po-md-3" name="average_consumption_km_per_liter" formControlName="average_consumption_km_per_liter" p-label="Consumo médio por litro (km) *" p-error-pattern="Valor inválido" [p-maxlength]="2"> </po-input>
+            <po-select
+                name="fuel_type"
+                p-label="Combustível *"
+                class="po-md-3"
+                formControlName="fuel_type"
+                p-field-value="label"
+                [ngModel]="vehicle ? vehicle.fuel_type : null"
+                [p-options]="(vehicleFuelTypes$ | async) || []"
+            ></po-select>
+        </div>
+
+        <po-divider></po-divider>
+
+        <div class="po-row">
+            <po-button
+                p-icon="ICON_OK"
+                p-label="Salvar"
+                p-kind="primary"
+                [p-disabled]="form.invalid"
+                (p-click)="save()"
+            ></po-button>
+        </div>
+    </form>
+</po-page-edit>

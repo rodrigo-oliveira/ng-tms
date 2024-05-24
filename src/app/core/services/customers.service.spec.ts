@@ -3,7 +3,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { CustomersService } from './customers.service';
 import { customersMockData } from '../mocks/customers.mock.data';
 import { CostumersAdapter } from '../adapters/customers.adapter';
-import { CUSTOMERS_API } from '../constants/api.constants';
+import { CUSTOMERS_API } from '../constants/api.constant';
 
 describe('CustomersService', () => {
   let service: CustomersService;

@@ -11,8 +11,6 @@ import { CustomersFacade } from './customers.facade';
 export class CustomersComponent implements OnInit {
   customersFacade = inject(CustomersFacade);
 
-  constructor() {}
-
   ngOnInit(): void {
     this.customersFacade.loadCustomers();
   }

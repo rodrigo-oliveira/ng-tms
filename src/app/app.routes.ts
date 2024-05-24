@@ -15,10 +15,10 @@ export const routes: Routes = [
   },
   {
     path: 'veiculos',
-    loadComponent: () =>
-      import('./features/vehicles/vehicles.component').then(
-        (m) => m.VehiclesComponent
-      ),
+    loadChildren: () =>
+      import('./features/vehicles/vehicles.routes').then(
+        (m) => m.vehiclesRoutes
+    )
   },
   {
     path: 'locais',

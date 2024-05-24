@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import { Customer } from '../models/customer';
 import { CustomersResponse } from '../models/customers-response';
-import { CUSTOMERS_API } from '../constants/api.constants';
+import { CUSTOMERS_API } from '../constants/api.constant';
 
 @Injectable({
   providedIn: 'root'

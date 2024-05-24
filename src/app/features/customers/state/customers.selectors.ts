@@ -7,6 +7,5 @@ export const customersSelector = (appState: AppState) => appState.customers.cust
 export const selectCustomerById = (customerId: string) =>
     createSelector(
       customersSelector, 
-      (customers: Customer[]) => {console.log(customers, customerId);
-        return customers.find(c => c.id === customerId) || new CustomerModel()}
+      (customers: Customer[]) => customers.find(c => c.id === customerId) || new CustomerModel()
     )

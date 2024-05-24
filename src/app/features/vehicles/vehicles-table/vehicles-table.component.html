@@ -1,0 +1,29 @@
+
+<po-page-default p-title="Veículos">
+  <div class="po-row">
+    <po-button
+        p-icon="po-icon-user-add"
+        p-label="Novo veículo"
+        p-kind="primary"
+        (p-click)="onClickNewVehicle()"
+    ></po-button>
+  </div>
+  <po-table
+    [p-actions]="tableActions"
+    [p-columns]="tableColumns"
+    [p-items]="(vehicles$ | async) || []"
+    [p-sort]="true"
+    [p-spacing]="spacing"
+    [p-hide-table-search]="false"
+    [p-actions-right]="true">
+  </po-table>
+  
+  <po-modal
+      p-title="Confirmar exclusão"
+      [p-primary-action]="confirm"
+      [p-secondary-action]="close">
+      <div>
+        Tem certeza de que deseja excluir esse registro? Você não poderá desfazer essa ação.
+      </div>
+  </po-modal>
+  </po-page-default>

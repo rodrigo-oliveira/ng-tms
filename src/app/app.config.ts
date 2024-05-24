@@ -1,7 +1,5 @@
 import { provideRouter } from '@angular/router';
-
 import { routes } from './app.routes';
-
 import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import { HttpClientModule, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -11,6 +9,7 @@ import { provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
 import { appReducers } from './state/app.reducers';
 import { loadCustomersEffect } from './features/customers/state/customers.effect';
+import { loadVehiclesBrandsEffect, loadVehiclesEffect, loadVehiclesModelsEffect } from './features/vehicles/state/vehicles.effect';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -18,7 +17,7 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom([BrowserAnimationsModule, PoHttpRequestModule, HttpClientModule]),
     provideHttpClient(withInterceptors([loadingInterceptor])),
     provideStore(appReducers),
-    provideEffects({ loadCustomersEffect })
+    provideEffects({ loadCustomersEffect, loadVehiclesEffect, loadVehiclesBrandsEffect, loadVehiclesModelsEffect })
 ],
   
 };
