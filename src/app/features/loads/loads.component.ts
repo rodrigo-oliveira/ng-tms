@@ -7,8 +7,7 @@ import { PoPageModule } from '@po-ui/ng-components';
   imports: [
     PoPageModule
   ],
-  templateUrl: './loads.component.html',
-  styleUrl: './loads.component.scss'
+  templateUrl: './loads.component.html'
 })
 export class LoadsComponent {
 

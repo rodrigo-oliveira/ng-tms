@@ -7,8 +7,7 @@ import { PoPageModule } from '@po-ui/ng-components';
   imports: [
     PoPageModule
   ],
-  templateUrl: './routes.component.html',
-  styleUrl: './routes.component.scss'
+  templateUrl: './routes.component.html'
 })
 export class RoutesComponent {
 

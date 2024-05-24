@@ -7,8 +7,7 @@ import { PoPageModule } from '@po-ui/ng-components';
   imports: [
     PoPageModule,
   ],
-  templateUrl: './locations.component.html',
-  styleUrl: './locations.component.scss'
+  templateUrl: './locations.component.html'
 })
 export class LocationsComponent {
 
