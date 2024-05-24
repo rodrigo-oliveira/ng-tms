@@ -1,11 +1,11 @@
 import { Injectable, inject } from '@angular/core';
 import { Observable, map, of } from 'rxjs';
 import { Store } from '@ngrx/store';
+import { PoSelectOption } from '@po-ui/ng-components';
 import { selectVehicleById, vehicleBrandsSelector, vehicleModelsSelector, vehiclesSelector } from './state/vehicles.selectors';
 import { vehiclesActions } from './state/vehicles.actions';
 import { Vehicle, VehicleId } from '../../core/models/vehicles';
 import { VehicleBrand } from '../../core/models/vehicle-brand';
-import { PoSelectOption } from '@po-ui/ng-components';
 import { OPTIONS_VEHICLE_FUEL_TYPES, OPTIONS_VEHICLE_TYPES } from '../../core/constants/options.constant';
 import { VehicleModelName } from '../../core/models/vehicle-model';
 import { VehiclesService } from '../../core/services/vehicles.service';

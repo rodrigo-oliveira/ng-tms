@@ -47,6 +47,6 @@ describe('LoaderInterceptor', () => {
 
     req.flush({});
 
-    expect(mockStore.dispatch).toHaveBeenCalledWith(loadingActions.loadingSucess());
+    expect(mockStore.dispatch).toHaveBeenCalledWith(loadingActions.loadingSuccess());
   });
 });

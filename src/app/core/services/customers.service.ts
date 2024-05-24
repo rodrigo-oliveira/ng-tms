@@ -27,7 +27,7 @@ export class CustomersService {
         return this.http.post<Cliente>(CUSTOMERS_SEND_API, customerPayload);
     }
 
-    deleteVehicle(payload: CustomerId) {
+    deleteCustomer(payload: CustomerId) {
         return this.http.post<CustomerId>(CUSTOMERS_DELETE_API, payload);
     }
 }

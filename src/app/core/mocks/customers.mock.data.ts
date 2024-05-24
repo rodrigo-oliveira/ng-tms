@@ -1,6 +1,7 @@
-import { ClientesResponse } from '../models/clientes-response';
+import { ClienteModel, ClientesResponse } from '../models/clientes-response';
+import { CustomerModel } from '../models/customer';
 
-export const customersMockData: ClientesResponse = {
+export const clientesMockData: ClientesResponse = {
   "items": [
     {
         "id": "0148093543698",
@@ -22,3 +23,6 @@ export const customersMockData: ClientesResponse = {
     }
   ]
 };
+
+export const customerMockData = new CustomerModel();
+export const clienteMockData = new ClienteModel();
