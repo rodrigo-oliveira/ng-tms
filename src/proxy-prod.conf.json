@@ -1,6 +1,6 @@
 {
     "/api": {
-      "target": "https://server-tms.vercel.app",
+      "target": "https://express-tms.vercel.app",
       "secure": false,
       "changeOrigin": true,
       "pathRewrite": {

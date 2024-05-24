@@ -9,7 +9,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `npm run start` for a dev server.
 
-Run `npm run start:prod` to run the application pointing to Vercel API.
+Run `npm run start:prod` to run the application pointing to production server (Vercel API Express).
 
 Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
@@ -63,8 +63,8 @@ APP (Production): [https://ng-tms.netlify.app/](https://ng-tms.netlify.app)
 
 APP (Staging): [https://staging--ng-tms.netlify.app/](https://staging--ng-tms.netlify.app/)
 
-## Vercel Server (JSON-SERVER)
+## Production Server (Express)
 
-API: [https://server-tms.vercel.app](https://server-tms.vercel.app)
+API: [https://express-tms.vercel.app](https://express-tms.vercel.app)
 
-Repository: [https://github.com/rodrigo-oliveira/server-tms](https://github.com/rodrigo-oliveira/server-tms)
+Repository: [https://github.com/rodrigo-oliveira/express-tms](https://github.com/rodrigo-oliveira/express-tms)
