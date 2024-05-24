@@ -58,9 +58,9 @@ BEM (Block Element Modifier)
 
 ## Access to the project
 
-Netlify APP (Production): [https://ng-tms.netlify.app/](https://ng-tms.netlify.app)
+APP (Production): [https://ng-tms.netlify.app/](https://ng-tms.netlify.app)
 
-Netlify APP (Staging): [https://staging--ng-tms.netlify.app/](https://staging--ng-tms.netlify.app/)
+APP (Staging): [https://staging--ng-tms.netlify.app/](https://staging--ng-tms.netlify.app/)
 
 ## Vercel Server (JSON-SERVER)
 
