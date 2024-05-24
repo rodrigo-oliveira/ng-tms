@@ -1,27 +1,67 @@
 # NgTms
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.5.
+Application using the Angular framework for a Transport Management System (TMS).
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.4.
+
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `npm run start` for a dev server.
+Run `npm run start:prod` to run the application pointing to Vercel API.
 
-## Code scaffolding
+Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The JSON Server will also be executed on port 3000.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory.
+
+## Start JSON Server
+
+Run `npm run server` for a JSON Server. This will run on `https://localhost:3000` by default.
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `npm run test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Technologies
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Framework
 
-## Further help
+Angular 17.3.5
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### State Management
+
+[NgRx](https://ngrx.io/)
+
+### Design System
+
+Angular Material
+
+### Preprocessor
+
+SASS
+
+### CSS Methodology
+
+BEM (Block Element Modifier)
+
+### Mocks API
+
+[JSON Server](https://www.npmjs.com/package/json-server)
+
+### Cloud service
+
+[Netlify](https://www.netlify.com/)
+
+## Access to the project
+
+Netlify APP (Production): [https://ng-tms.netlify.app/](https://ng-tms.netlify.app)
+
+Netlify APP (Staging): [https://staging--ng-tms.netlify.app/](https://staging--ng-tms.netlify.app/)
+
+## Vercel Server (JSON-SERVER)
+
+API: [https://server-tms.vercel.app](https://server-tms.vercel.app)
