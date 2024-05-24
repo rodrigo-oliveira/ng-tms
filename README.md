@@ -38,7 +38,7 @@ Angular 17.3.5
 
 ### Design System
 
-Angular Material
+[PO UI (TOTVS)](https://po-ui.io/)
 
 ### Preprocessor
 
