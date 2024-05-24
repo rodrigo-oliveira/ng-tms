@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Customer } from '../../core/models/customer';
+import { Customer, CustomerId } from '../../core/models/customer';
 import { Store } from '@ngrx/store';
 import { customersSelector, selectCustomerById } from './state/customers.selectors';
 import { customersActions } from './state/customers.actions';
@@ -25,7 +25,11 @@ export class CustomersFacade {
       this.store.dispatch(customersActions.loadCustomers());
     }
 
-    postCustomer(customer: Customer) {
-      return this.customersService.postCustomer(customer);
+    postCustomer(payload: Customer) {
+      return this.customersService.postCustomer(payload);
+    }
+
+    deleteCustomer(payload: CustomerId) {
+      return this.customersService.deleteVehicle(payload);
     }
 }

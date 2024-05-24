@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { CostumersAdapter } from '../adapters/customers.adapter';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
-import { Customer } from '../models/customer';
+import { Customer, CustomerId } from '../models/customer';
 import { Cliente, ClientesResponse } from '../models/clientes-response';
-import { CUSTOMERS_API, CUSTOMERS_SEND_API } from '../constants/api.constant';
+import { CUSTOMERS_API, CUSTOMERS_DELETE_API, CUSTOMERS_SEND_API } from '../constants/api.constant';
 
 @Injectable({
   providedIn: 'root'
@@ -21,9 +21,13 @@ export class CustomersService {
         );
     }
 
-    postCustomer(customerPayload: Customer) {
-        const payload = this.costumersAdapter.adaptToPost(customerPayload);
+    postCustomer(payload: Customer) {
+        const customerPayload = this.costumersAdapter.adaptToPost(payload);
 
-        return this.http.post<Cliente>(CUSTOMERS_SEND_API, payload);
+        return this.http.post<Cliente>(CUSTOMERS_SEND_API, customerPayload);
+    }
+
+    deleteVehicle(payload: CustomerId) {
+        return this.http.post<CustomerId>(CUSTOMERS_DELETE_API, payload);
     }
 }

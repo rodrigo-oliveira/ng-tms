@@ -22,7 +22,7 @@ export const loadingReducer = createReducer(
       status: Status.loading
     }
   }),
-  on(loadingActions.loadingSucess, () => {
+  on(loadingActions.loadingSuccess, () => {
     return {
       status: Status.success
     }

@@ -12,7 +12,7 @@ export const loadingInterceptor: HttpInterceptorFn = (req, next) => {
       return store.dispatch(loadingActions.loadingStarted())
     }),
     finalize(() => {
-      return store.dispatch(loadingActions.loadingSucess());
+      return store.dispatch(loadingActions.loadingSuccess());
     })
   );
 };

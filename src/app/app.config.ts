@@ -11,13 +11,13 @@ import { appReducers } from './state/app.reducers';
 import { loadCustomersEffect } from './features/customers/state/customers.effect';
 import { loadVehiclesBrandsEffect, loadVehiclesEffect, loadVehiclesModelsEffect } from './features/vehicles/state/vehicles.effect';
 import { BrowserModule } from '@angular/platform-browser';
-import { notificationErrorInterceptor } from './shared/components/notification-error/notification-error.interceptor';
+import { notificationStatusInterceptor } from './shared/components/notification-status/notification-status.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     importProvidersFrom([BrowserModule, BrowserAnimationsModule, PoHttpRequestModule, HttpClientModule]),
-    provideHttpClient(withInterceptors([loadingInterceptor, notificationErrorInterceptor])),
+    provideHttpClient(withInterceptors([loadingInterceptor, notificationStatusInterceptor])),
     provideStore(appReducers),
     provideEffects({ loadCustomersEffect, loadVehiclesEffect, loadVehiclesBrandsEffect, loadVehiclesModelsEffect })
   ]

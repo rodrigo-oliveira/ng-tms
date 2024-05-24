@@ -4,5 +4,7 @@
   "/marcas-veiculos": "/marcas-veiculos",
   "/modelos-veiculos": "/modelos-veiculos",
   "/atualizar-cliente": "/atualizar-cliente",
-  "/atualizar-veiculo": "/atualizar-veiculo"
+  "/atualizar-veiculo": "/atualizar-veiculo",
+  "/remover-cliente": "/remover-cliente",
+  "/remover-veiculo": "/remover-veiculo"
 }
