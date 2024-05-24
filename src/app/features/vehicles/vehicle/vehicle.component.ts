@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -18,6 +18,7 @@ import {
 import { VehiclesFacade } from '../vehicles.facade';
 import { Vehicle, VehicleModel } from '../../../core/models/vehicles';
 import { AsyncPipe } from '@angular/common';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-customer',
@@ -34,7 +35,7 @@ import { AsyncPipe } from '@angular/common';
   templateUrl: './vehicle.component.html',
   styleUrl: './vehicle.component.scss',
 })
-export class VehicleComponent implements OnInit {
+export class VehicleComponent implements OnInit, OnDestroy {
   vehiclesFacade = inject(VehiclesFacade);
   form = this.formBuilder.group(this.getFormGroup(new VehicleModel()));
   title = '';
@@ -50,6 +51,8 @@ export class VehicleComponent implements OnInit {
   vehicleFuelTypes$ = this.vehiclesFacade.vehicleFuelTypes$;
   vehicleModels$ = this.vehiclesFacade.vehicleModels$;
   vehicle: Vehicle;
+  vehicleSubscription: Subscription;
+  vehicleByIdSubscription: Subscription;
 
   constructor(
     private router: Router,
@@ -67,11 +70,16 @@ export class VehicleComponent implements OnInit {
     this.vehiclesFacade.loadVehicleModels();
 
     if (vehicleId) {
-      this.vehiclesFacade.getVehicleById(vehicleId).subscribe(vehicle => {
+      this.vehicleByIdSubscription = this.vehiclesFacade.getVehicleById(vehicleId).subscribe(vehicle => {
         this.createForm(vehicle);
         this.vehicle = vehicle;
       });
     }
+  }
+
+  ngOnDestroy(): void {
+    this.vehicleSubscription?.unsubscribe();
+    this.vehicleByIdSubscription?.unsubscribe();
   }
 
   getTitle() {
@@ -114,7 +122,7 @@ export class VehicleComponent implements OnInit {
   }
 
   save(): void {
-    this.vehiclesFacade.postVehicle(this.form.value as Vehicle).subscribe(data=> {
+    this.vehicleSubscription = this.vehiclesFacade.postVehicle(this.form.value as Vehicle).subscribe(data=> {
       this.router.navigate(['veiculos']);
     });
   }

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { NotificationErrorStore } from './notification-error.store';
 import { AsyncPipe } from '@angular/common';
 import { PoNotificationService } from '@po-ui/ng-components';
@@ -7,9 +7,9 @@ import { PoNotificationService } from '@po-ui/ng-components';
   selector: 'app-notification-error',
   standalone: true,
   imports: [ AsyncPipe],
-  template: `<p>{{showError$ | async}}</p>`
+  template: ``
 })
-export class NotificationErrorComponent {
+export class NotificationErrorComponent implements OnInit, OnDestroy {
   poNotification = inject(PoNotificationService);
   notificationErrorStore = inject(NotificationErrorStore)
   showError$ = this.notificationErrorStore.showError$;
@@ -19,6 +19,10 @@ export class NotificationErrorComponent {
       if (showError) {
         this.poNotification.error('Desculpe, ocorreu um erro ao processar sua solicitação. Por favor, tente novamente mais tarde.');
       }
-    })
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.showError$.unsubscribe();
   }
 }

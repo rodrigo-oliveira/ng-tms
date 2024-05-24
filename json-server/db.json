@@ -22,10 +22,10 @@
     ]
   },
   "atualizar-cliente": {
-    "id": "0148093543698",
-    "nome": "Ronaldo Nascimento Filho",
+    "id": "0158093543699",
+    "nome": "Alberto Souza Oliveira",
     "documento": "12345678909",
-    "status": false
+    "status": true
   },
   "veiculos": {
     "items": [
@@ -112,13 +112,13 @@
     ]
   },
   "atualizar-veiculo": {
-    "id": null,
+    "id": 2,
     "marca": "Ford",
     "modelo": "Transit",
-    "tipo": "Caminhão",
-    "ano": 2024,
-    "capacidade_carga_kg": 1231,
-    "consumo_medio_km_litro": "12",
-    "combustivel": "Alcool"
+    "tipo": "Van",
+    "ano": 2020,
+    "capacidade_carga_kg": 1500,
+    "consumo_medio_km_litro": 8,
+    "combustivel": "Diesel"
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -16,6 +16,7 @@ import {
 import { CustomerModel, Customer } from '../../../core/models/customer';
 import { CustomersFacade } from '../customers.facade';
 import { TmsValidators } from '../../../shared/validators/validators';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-customer',
@@ -30,7 +31,7 @@ import { TmsValidators } from '../../../shared/validators/validators';
   templateUrl: './customer.component.html',
   styleUrl: './customer.component.scss',
 })
-export class CustomerComponent implements OnInit {
+export class CustomerComponent implements OnInit, OnDestroy {
   customersFacade = inject(CustomersFacade);
   form = this.formBuilder.group(this.getFormGroup(new CustomerModel()));
   title = '';
@@ -41,6 +42,8 @@ export class CustomerComponent implements OnInit {
       { label: '' },
     ],
   };
+  customerIdSubscription: Subscription;
+  customerSubscription: Subscription;
 
   constructor(
     private router: Router,
@@ -56,10 +59,15 @@ export class CustomerComponent implements OnInit {
     this.routerUrl = this.router.url;
 
     if (customerId !== '') {
-      this.customersFacade.getCustomerById(customerId).subscribe(customer => {
+      this.customerIdSubscription = this.customersFacade.getCustomerById(customerId).subscribe(customer => {
         this.createForm(customer);
       });
     }
+  }
+
+  ngOnDestroy(): void {
+    this.customerIdSubscription?.unsubscribe();
+    this.customerSubscription?.unsubscribe();
   }
 
   getTitle() {
@@ -91,7 +99,7 @@ export class CustomerComponent implements OnInit {
   }
 
   save(): void {
-    this.customersFacade.postCustomer(this.form.value as Customer).subscribe(data => {
+    this.customerSubscription = this.customersFacade.postCustomer(this.form.value as Customer).subscribe(data => {
       this.router.navigate(['clientes']);
     });
   }
