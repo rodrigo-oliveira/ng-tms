@@ -21,6 +21,12 @@
       }
     ]
   },
+  "atualizar-cliente": {
+    "id": "",
+    "nome": "asd asdasd",
+    "documento": "41998055833",
+    "status": false
+  },
   "veiculos": {
     "items": [
       {
@@ -104,5 +110,15 @@
         "modelo": "Furgão"
       }
     ]
+  },
+  "atualizar-veiculo": {
+    "id": null,
+    "marca": "Ford",
+    "modelo": "Transit",
+    "tipo": "Caminhão",
+    "ano": 2024,
+    "capacidade_carga_kg": 1231,
+    "consumo_medio_km_litro": "12",
+    "combustivel": "Alcool"
   }
 }

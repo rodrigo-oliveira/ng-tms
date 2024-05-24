@@ -2,6 +2,7 @@
   "/clientes": "/clientes",
   "/veiculos": "/veiculos",
   "/marcas-veiculos": "/marcas-veiculos",
-  "/modelos-veiculos": "/modelos-veiculos"
-
+  "/modelos-veiculos": "/modelos-veiculos",
+  "/atualizar-cliente": "/atualizar-cliente",
+  "/atualizar-veiculo": "/atualizar-veiculo"
 }

@@ -114,7 +114,9 @@ export class VehicleComponent implements OnInit {
   }
 
   save(): void {
-    this.router.navigate(['veiculos']);
+    this.vehiclesFacade.postVehicle(this.form.value as Vehicle).subscribe(data=> {
+      this.router.navigate(['veiculos']);
+    });
   }
 
   onSelectBrand(brandId: number){

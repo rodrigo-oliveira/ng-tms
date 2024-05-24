@@ -3,8 +3,8 @@ import { CostumersAdapter } from '../adapters/customers.adapter';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import { Customer } from '../models/customer';
-import { CustomersResponse } from '../models/customers-response';
-import { CUSTOMERS_API } from '../constants/api.constant';
+import { Cliente, ClientesResponse } from '../models/clientes-response';
+import { CUSTOMERS_API, CUSTOMERS_SEND_API } from '../constants/api.constant';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +16,14 @@ export class CustomersService {
     ) { }
 
     getAll(): Observable<Customer[]> {
-        return this.http.get<CustomersResponse>(CUSTOMERS_API).pipe(
+        return this.http.get<ClientesResponse>(CUSTOMERS_API).pipe(
             map((user) => this.costumersAdapter.adaptArray(user.items))
         );
+    }
+
+    postCustomer(customerPayload: Customer) {
+        const payload = this.costumersAdapter.adaptToPost(customerPayload);
+
+        return this.http.post<Cliente>(CUSTOMERS_SEND_API, payload);
     }
 }

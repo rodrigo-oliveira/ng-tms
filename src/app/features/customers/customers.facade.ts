@@ -4,13 +4,15 @@ import { Customer } from '../../core/models/customer';
 import { Store } from '@ngrx/store';
 import { customersSelector, selectCustomerById } from './state/customers.selectors';
 import { customersActions } from './state/customers.actions';
+import { CustomersService } from '../../core/services/customers.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomersFacade {
     private store = inject(Store);
-  
+    private customersService = inject(CustomersService);
+
     get customers$(): Observable<Customer[]> {
       return this.store.select(customersSelector);
     }
@@ -21,5 +23,9 @@ export class CustomersFacade {
 
     loadCustomers() {
       this.store.dispatch(customersActions.loadCustomers());
+    }
+
+    postCustomer(customer: Customer) {
+      return this.customersService.postCustomer(customer);
     }
 }

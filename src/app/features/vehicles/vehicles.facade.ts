@@ -8,12 +8,14 @@ import { VehicleBrand } from '../../core/models/vehicle-brand';
 import { PoSelectOption } from '@po-ui/ng-components';
 import { OPTIONS_VEHICLE_FUEL_TYPES, OPTIONS_VEHICLE_TYPES } from '../../core/constants/options.constant';
 import { VehicleModelName } from '../../core/models/vehicle-model';
+import { VehiclesService } from '../../core/services/vehicles.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class VehiclesFacade {
     private store = inject(Store);
+    private vehiclesService = inject(VehiclesService);
 
     get vehicles$(): Observable<Vehicle[]> {
       return this.store.select(vehiclesSelector);
@@ -65,5 +67,9 @@ export class VehiclesFacade {
   
     loadVehicleModels() {
       this.store.dispatch(vehiclesActions.loadVehicleModels());
+    }
+
+    postVehicle(vehicle: Vehicle) {
+      return this.vehiclesService.postVehicle(vehicle);
     }
 }

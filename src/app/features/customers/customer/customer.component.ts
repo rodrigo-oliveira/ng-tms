@@ -91,6 +91,8 @@ export class CustomerComponent implements OnInit {
   }
 
   save(): void {
-    this.router.navigate(['clientes']);
+    this.customersFacade.postCustomer(this.form.value as Customer).subscribe(data => {
+      this.router.navigate(['clientes']);
+    });
   }
 }
