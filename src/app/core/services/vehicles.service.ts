@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
-import { VEHICLES_API, VEHICLES_SEND_API } from '../constants/api.constant';
+import { VEHICLES_API, VEHICLES_DELETE_API, VEHICLES_SEND_API } from '../constants/api.constant';
 import { VehiclesAdapter } from '../adapters/vehicles.adapter';
 import { Veiculo, VeiculosResponse } from '../models/veiculos-response';
-import { Vehicle } from '../models/vehicles';
+import { Vehicle, VehicleId } from '../models/vehicles';
 
 @Injectable({
   providedIn: 'root'
@@ -21,9 +21,13 @@ export class VehiclesService {
         );
     }
 
-    postVehicle(vehiclePayload: Vehicle) {
-        const payload = this.vehiclesAdapter.adaptToPost(vehiclePayload);
+    postVehicle(payload: Vehicle) {
+        const vehiclePayload = this.vehiclesAdapter.adaptToPost(payload);
 
-        return this.http.post<Veiculo>(VEHICLES_SEND_API, payload);
+        return this.http.post<Veiculo>(VEHICLES_SEND_API, vehiclePayload);
+    }
+
+    deleteVehicle(payload: VehicleId) {
+        return this.http.post<VehicleId>(VEHICLES_DELETE_API, payload);
     }
 }

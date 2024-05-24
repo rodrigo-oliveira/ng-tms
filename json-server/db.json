@@ -120,5 +120,11 @@
     "capacidade_carga_kg": 800,
     "consumo_medio_km_litro": 12,
     "combustivel": "Gasolina"
+  },
+  "remover-cliente": {
+    "id": "0168093543622"
+  },
+  "remover-veiculo": {
+    "id": 3
   }
 }

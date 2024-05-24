@@ -3,7 +3,7 @@ import { Observable, map, of } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { selectVehicleById, vehicleBrandsSelector, vehicleModelsSelector, vehiclesSelector } from './state/vehicles.selectors';
 import { vehiclesActions } from './state/vehicles.actions';
-import { Vehicle } from '../../core/models/vehicles';
+import { Vehicle, VehicleId } from '../../core/models/vehicles';
 import { VehicleBrand } from '../../core/models/vehicle-brand';
 import { PoSelectOption } from '@po-ui/ng-components';
 import { OPTIONS_VEHICLE_FUEL_TYPES, OPTIONS_VEHICLE_TYPES } from '../../core/constants/options.constant';
@@ -69,7 +69,11 @@ export class VehiclesFacade {
       this.store.dispatch(vehiclesActions.loadVehicleModels());
     }
 
-    postVehicle(vehicle: Vehicle) {
-      return this.vehiclesService.postVehicle(vehicle);
+    postVehicle(payload: Vehicle) {
+      return this.vehiclesService.postVehicle(payload);
+    }
+
+    deleteVehicle(payload: VehicleId) {
+      return this.vehiclesService.deleteVehicle(payload);
     }
 }

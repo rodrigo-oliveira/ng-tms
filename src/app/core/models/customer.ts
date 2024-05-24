@@ -13,3 +13,7 @@ export interface Customer {
     document: string;
     status: string;
 }
+
+export interface CustomerId {
+    id: string
+}

@@ -19,3 +19,7 @@ export interface Vehicle {
     average_consumption_km_per_liter: number;
     fuel_type: string;
 }
+
+export interface VehicleId {
+    id: number
+}
