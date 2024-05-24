@@ -30,6 +30,6 @@ export class CustomersFacade {
     }
 
     deleteCustomer(payload: CustomerId) {
-      return this.customersService.deleteVehicle(payload);
+      return this.customersService.deleteCustomer(payload);
     }
 }

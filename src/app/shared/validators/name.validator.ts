@@ -7,5 +7,5 @@ function isValidName(value: string):boolean {
 export function nameValidator(control: AbstractControl): ValidationErrors | null  {
   const isValid = isValidName(control.value);
 
-  return !isValid ? {'invalidName': {value: control.value}} : null;
+  return !isValid ? {invalidName: true} : null;
 }

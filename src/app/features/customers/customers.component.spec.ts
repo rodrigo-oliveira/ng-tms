@@ -2,6 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CustomersComponent } from './customers.component';
 import { CustomersFacade } from './customers.facade';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
+import { CustomersService } from '../../core/services/customers.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('CustomersComponent', () => {
   let component: CustomersComponent;
@@ -12,10 +14,12 @@ describe('CustomersComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        CustomersComponent
+        CustomersComponent,
+        HttpClientTestingModule
       ],
       providers: [
         CustomersFacade,
+        CustomersService,
         provideMockStore()
       ]
     }).compileComponents();
