@@ -7,6 +7,7 @@ import {
 import { LoadingComponent } from './shared/components/loading/loading.component';
 import { MenuComponent } from './shared/components/menu/menu.component';
 import { NgIf } from '@angular/common';
+import { NotificationErrorComponent } from './shared/components/notification-error/notification-error.component';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,8 @@ import { NgIf } from '@angular/common';
     PoToolbarModule,
     PoLoadingModule,
     MenuComponent,
-    LoadingComponent
+    LoadingComponent,
+    NotificationErrorComponent
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
