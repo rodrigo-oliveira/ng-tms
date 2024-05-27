@@ -9,7 +9,7 @@ import { loadingSelector } from './state/loading.selectors';
   standalone: true,
   imports: [ AsyncPipe, PoLoadingModule ],
   styles: ':host:hidden {visibility: hidden;}',
-  template: `{{(loadingStatus$ | async)}}<po-loading-overlay [p-screen-lock]="true" [hidden]="(loadingStatus$ | async) !== 'loading'"></po-loading-overlay>`
+  template: `<po-loading-overlay [p-screen-lock]="true" [hidden]="(loadingStatus$ | async) !== 'loading'"></po-loading-overlay>`
 })
 export class LoadingComponent {
   private store = inject(Store);
